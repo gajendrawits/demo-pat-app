@@ -37,7 +37,7 @@ const Footer = () => {
         </InstagramSection>
       </SocialMediaSection>
       <StoreAdress>
-        <strong> Address: </strong> petatore@gmail.com
+        <strong> Contact us: </strong> petatore@gmail.com
       </StoreAdress>
     </Container>
   )
