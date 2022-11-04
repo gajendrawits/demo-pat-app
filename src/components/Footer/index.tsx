@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <Container>
       <AboutSection>
-        <AboutText>Our Team</AboutText>
+        <AboutText>About us</AboutText>
         <AboutContent>
           PETSTORE started its operation in 2020 with a mission to feed animal lovers needs. Our dedication to customers
           pets is why we hand pick and research every item stocked on our shelves. We are the no1 online pet store to be
