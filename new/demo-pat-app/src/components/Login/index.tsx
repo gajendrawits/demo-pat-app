@@ -10,45 +10,53 @@ import {
   LoginCrossIcon,
   LoginText,
   MainContainer,
+  MainWrapper,
   PasswordInput,
   Wrapper,
 } from 'styles/components/Login'
 
-const Login = () => {
+interface LoginProps {
+  isClose: () => void
+}
+
+const Login = ({ isClose }: LoginProps) => {
   const { control } = useForm()
 
   const handleClicked = () => {
-    console.log('click')
+    isClose()
   }
 
   return (
-    <MainContainer>
-      <Container>
-        <Wrapper>
-          <LoginCrossIcon>
-            <ClearIcon sx={{ fontSize: '35px', fontWeight: 900 }} onClick={handleClicked} />
-          </LoginCrossIcon>
-        </Wrapper>
-        <LoginText>Login</LoginText>
-        <form>
-          <EmailInput>
-            <TextInput name="email" placeholder="Enter your Email" type="text" control={control} className="email" />
-          </EmailInput>
-          <PasswordInput>
-            <TextInput
-              name="password"
-              placeholder="Enter your Password"
-              type="text"
-              control={control}
-              className="password"
-            />
-          </PasswordInput>
-          <ButtonWrapper>
-            <Button type="submit" label="Submit" variant="contained" />
-          </ButtonWrapper>
-        </form>
-      </Container>
-    </MainContainer>
+    <>
+      <MainWrapper />
+      <MainContainer>
+        <Container>
+          <Wrapper>
+            <LoginCrossIcon>
+              <ClearIcon sx={{ fontSize: '35px', fontWeight: 900 }} onClick={handleClicked} />
+            </LoginCrossIcon>
+          </Wrapper>
+          <LoginText>Login</LoginText>
+          <form>
+            <EmailInput>
+              <TextInput name="email" placeholder="Enter your Email" type="text" control={control} className="email" />
+            </EmailInput>
+            <PasswordInput>
+              <TextInput
+                name="password"
+                placeholder="Enter your Password"
+                type="text"
+                control={control}
+                className="password"
+              />
+            </PasswordInput>
+            <ButtonWrapper>
+              <Button type="submit" label="Submit" variant="contained" />
+            </ButtonWrapper>
+          </form>
+        </Container>
+      </MainContainer>
+    </>
   )
 }
 

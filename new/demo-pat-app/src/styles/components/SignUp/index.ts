@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+export const MainWrapper = styled.div`
+  width: 100vw;
+  height: 80vh;
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+`
+
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,6 +17,7 @@ export const MainContainer = styled.div`
   width: 26vw;
   height: 43vh;
   border: 2px solid #ffb84d;
+  background-color: white;
 `
 
 export const Container = styled.div`
