@@ -14,13 +14,13 @@ export const Card = styled.div`
   background-color: whitesmoke;
   box-shadow: 1px 1px 1px whitesmoke;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   border: 1px solid whitesmoke;
   cursor: pointer;
 `
 
 export const CardMedia = styled.div`
-  width: 80%;
+  width: 50%;
   img {
     object-fit: contain;
     max-width: 100%;
@@ -29,15 +29,44 @@ export const CardMedia = styled.div`
 `
 export const CardContent = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 `
 
 export const CardTitleName = styled.div`
-  font-size: 1rem;
+  display: flex;
 `
-export const CardTextBreed = styled.div``
+export const CardNameHeading = styled.div`
+  font-size: 1.2rem;
+`
+
+export const CardTextBreed = styled.div`
+  display: flex;
+`
 
 export const CardAnimal = styled.div`
+  display: flex;
   text-transform: capitalize;
   font-family: sans-serif;
+`
+export const CardData = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 10px;
+`
+
+export const AddAnimal = styled.div`
+  display: flex;
+  width: 10vw;
+  height: 10vh;
+  background-color: whitesmoke;
+  margin: auto;
+  margin-top: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: #d9d9d9;
+  }
+  h2 {
+    padding: 25px 30px;
+  }
 `

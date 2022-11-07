@@ -1,6 +1,18 @@
-import React from 'react'
-import { Container, Card, CardAnimal, CardMedia, CardTextBreed, CardContent, CardTitleName } from 'styles/views/Content'
+import React, { useState } from 'react'
+import {
+  Container,
+  Card,
+  CardAnimal,
+  CardMedia,
+  CardTextBreed,
+  CardContent,
+  CardTitleName,
+  AddAnimal,
+  CardNameHeading,
+  CardData,
+} from 'styles/views/Content'
 import { animals } from 'constant/data'
+import AddPet from 'views/AddPet'
 
 interface animalsProps {
   name: string
@@ -10,28 +22,43 @@ interface animalsProps {
 }
 
 const Content = () => {
+  const [addAnimal, setAddAnimal] = useState(false)
+  const handleAdd = () => {
+    setAddAnimal(true)
+  }
+
+  const handleClose = () => {
+    setAddAnimal(false)
+  }
+
   return (
-    <Container>
-      {animals?.map((animal: animalsProps, index: number) => (
-        <Card key={index}>
-          <CardMedia>
-            <img src={animal?.ImageUrl} />
-          </CardMedia>
-          <CardContent>
-            <CardTitleName>
-              <strong>Name: </strong> {animal.name}
-            </CardTitleName>
-            <CardTextBreed>
-              <strong>Bredd: </strong> {animal.breed}
-            </CardTextBreed>
-          </CardContent>
-          <CardAnimal>
-            <strong> Animal: </strong>
-            {animal.animal}
-          </CardAnimal>
-        </Card>
-      ))}
-    </Container>
+    <>
+      <Container>
+        {animals?.map((animal: animalsProps, index: number) => (
+          <Card key={index}>
+            <CardMedia>
+              <img src={animal?.ImageUrl} />
+            </CardMedia>
+            <CardContent>
+              <CardTitleName>
+                <CardNameHeading>Name: </CardNameHeading> <CardData> {animal.name}</CardData>
+              </CardTitleName>
+              <CardTextBreed>
+                <CardNameHeading>Bredd: </CardNameHeading> <CardData> {animal.breed} </CardData>
+              </CardTextBreed>
+              <CardAnimal>
+                <CardNameHeading> Animal: </CardNameHeading>
+                <CardData> {animal.animal}</CardData>
+              </CardAnimal>
+            </CardContent>
+          </Card>
+        ))}
+      </Container>
+      <AddAnimal onClick={handleAdd}>
+        <h2>Add Your Pet </h2>
+      </AddAnimal>
+      {addAnimal && <AddPet onClose={handleClose} />}
+    </>
   )
 }
 
