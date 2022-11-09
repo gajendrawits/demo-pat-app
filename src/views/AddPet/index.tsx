@@ -77,5 +77,3 @@ const AddPet = ({ isClose }: AddPetProps) => {
 }
 
 export default AddPet
-
-//<AlertModal Content="Pet Add SuccessFully" isClose={handleClicked} />
