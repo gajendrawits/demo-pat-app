@@ -57,7 +57,7 @@ const Content = () => {
       <AddAnimal onClick={handleAdd}>
         <h2>Add Your Pet </h2>
       </AddAnimal>
-      {addAnimal && <AddPet onClose={handleClose} />}
+      {addAnimal && <AddPet isClose={handleClose} />}
     </>
   )
 }

@@ -17,32 +17,34 @@ import {
 import usePost from 'hooks/usePost'
 import { ValidationSchema } from 'utils/AddpetUtils'
 
+import AlertModal from 'components/AlertModal'
+
 interface AddPetProps {
-  onClose: () => void
+  isClose: () => void
 }
-const AddPet = ({ onClose }: AddPetProps) => {
+const AddPet = ({ isClose }: AddPetProps) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onSubmit', resolver: yupResolver(ValidationSchema), shouldFocusError: true })
 
-  const { mutateAsync } = usePost()
+  const { mutateAsync, isSuccess } = usePost()
 
   const formData = async (val: any) => {
-    const mutation = await mutateAsync({
-      url: 'https://petstore.swagger.io/v2/pet',
-      payload: { name: val.name, breed: val.breed, photoUrls: [val.photoUrls] },
+    const breed = val.breed
+    await mutateAsync({
+      url: '/pet',
+      payload: { name: val.name, tags: [{ breed }], photoUrls: [val.photoUrls] },
     })
-
-    console.log(mutation.id)
-
-    onClose()
+    isClose()
   }
 
   const handleClicked = () => {
-    onClose()
+    isClose()
   }
+
+  console.log(isSuccess)
 
   return (
     <>
@@ -69,8 +71,11 @@ const AddPet = ({ onClose }: AddPetProps) => {
           </ButtonWrapper>
         </form>
       </Container>
+      {isSuccess ? <AlertModal Content="Pet Add SuccessFully" isClose={handleClicked} /> : null}
     </>
   )
 }
 
 export default AddPet
+
+//<AlertModal Content="Pet Add SuccessFully" isClose={handleClicked} />
