@@ -1,6 +1,6 @@
 import Button from 'components/Button'
 import TextInput from 'components/FormElements/TextInput'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ClearIcon from '@mui/icons-material/Clear'
 import { ValidationSchema } from 'utils/Login'
@@ -22,9 +22,10 @@ import AlertModal from 'components/AlertModal'
 
 interface LoginProps {
   isClose: () => void
+  getStatus: (active: boolean) => void
 }
 
-const Login = ({ isClose }: LoginProps) => {
+const Login = ({ isClose, getStatus }: LoginProps) => {
   const [userName, setUserName] = useState()
   const [password, setPassword] = useState()
 
@@ -38,23 +39,22 @@ const Login = ({ isClose }: LoginProps) => {
     setPassword(value.password)
     setUserName(value.username)
     userLoginFun()
-    isClose()
   }
 
-  const {
-    refetch: userLoginFun,
-    data,
-    isSuccess,
-  } = useGet('login', `/user/login?username=${userName}&password=${password}`)
+  const { refetch: userLoginFun, isSuccess } = useGet('login', `/user/login?username=${userName}&password=${password}`)
 
   const handleClicked = () => {
     isClose()
   }
 
+  useEffect(() => {
+    getStatus(isSuccess)
+  })
+
   return (
     <>
       {isSuccess ? (
-        <AlertModal Content={data.message} isClose={handleClicked} />
+        <AlertModal Content={'Login Successfully'} isClose={handleClicked} />
       ) : (
         <>
           <MainWrapper />
