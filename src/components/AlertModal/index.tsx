@@ -1,17 +1,29 @@
 import Button from 'components/Button'
 import React from 'react'
-import { AlertContent, Container } from 'styles/components/AlertModal'
+import { AlertContent, ButtonWrapper, Container, MainContainer } from 'styles/components/AlertModal'
 
 interface AlertModalProps {
-  Content: string
+  Content?: string
+  isClose: () => void
 }
 
-const AlertModal = ({ Content }: AlertModalProps) => {
+const AlertModal = ({ Content, isClose }: AlertModalProps) => {
+  const handleClose = () => {
+    isClose()
+  }
+
   return (
-    <Container>
-      <AlertContent>{Content}</AlertContent>
-      <Button label="Ok" type="submit" />
-    </Container>
+    <>
+      <MainContainer />
+      <Container>
+        <AlertContent>
+          <h2>{Content} </h2>
+        </AlertContent>
+        <ButtonWrapper>
+          <Button label="Ok" type="submit" onClick={handleClose} />
+        </ButtonWrapper>
+      </Container>
+    </>
   )
 }
 

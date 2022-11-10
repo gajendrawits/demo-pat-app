@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
   position: absolute;
   top: 30%;
   left: 40%;
-  height: 27vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -23,7 +23,7 @@ export const MainContainer = styled.div`
 
 export const Container = styled.div`
   width: 20vw;
-  height: 25vh;
+  height: 30vh;
 `
 export const Wrapper = styled.div`
   display: flex;
@@ -42,6 +42,7 @@ export const LoginText = styled.div`
 
 export const EmailInput = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   .email {
@@ -53,6 +54,7 @@ export const PasswordInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   .password {
     text-align: center;
   }
@@ -61,5 +63,13 @@ export const PasswordInput = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+`
+
+export const ErrorMessage = styled.div`
+  color: red;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
   justify-content: center;
 `

@@ -1,6 +1,6 @@
 import Button from 'components/Button'
 import TextInput from 'components/FormElements/TextInput'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ClearIcon from '@mui/icons-material/Clear'
 import {
@@ -15,30 +15,60 @@ import {
   UserNameWrapper,
   UserWrapper,
   MainContainer,
-  Wrapper,
   SignUpIconWrapper,
   MainWrapper,
 } from 'styles/components/SignUp'
+
+import { ValidationSchema } from 'utils/SignUpUtils'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from 'styles/components/Login'
+import usePost from 'hooks/usePost'
+import AlertModal from 'components/AlertModal'
 
 interface signInProps {
   isClose: () => void
 }
 
 const SignUp = ({ isClose }: signInProps) => {
-  const { control } = useForm()
+  const [open, setOpen] = useState(false)
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: 'onChange', resolver: yupResolver(ValidationSchema) })
+
+  const { mutateAsync } = usePost()
+
+  const formSignUp = async (formdata: any) => {
+    mutateAsync({
+      url: '/user',
+      payload: { formdata },
+    })
+    isClose()
+    handleOpen()
+  }
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  console.log(open)
 
   return (
     <>
       <MainWrapper />
       <MainContainer>
         <Container>
-          <Wrapper>
-            <SignUpWrapper>Sign Up</SignUpWrapper>
-            <SignUpIconWrapper>
-              <ClearIcon sx={{ fontSize: '38px', fontWeight: 900 }} onClick={() => isClose()} />
-            </SignUpIconWrapper>
-          </Wrapper>
-          <form>
+          <SignUpIconWrapper>
+            <ClearIcon sx={{ fontSize: '38px', fontWeight: 900 }} onClick={() => isClose()} />
+          </SignUpIconWrapper>
+          <SignUpWrapper>Sign Up</SignUpWrapper>
+          <form onSubmit={handleSubmit(formSignUp)}>
             <UserWrapper>
               <FirstNameWrapper>
                 <TextInput
@@ -48,6 +78,7 @@ const SignUp = ({ isClose }: signInProps) => {
                   control={control}
                   className="firstname"
                 />
+                <ErrorMessage> {errors?.firstname && errors?.firstname?.message}</ErrorMessage>
               </FirstNameWrapper>
               <LastNameWrapper>
                 <TextInput
@@ -57,6 +88,7 @@ const SignUp = ({ isClose }: signInProps) => {
                   control={control}
                   className="lastname"
                 />
+                <ErrorMessage> {errors?.lastname && errors?.lastname?.message}</ErrorMessage>
               </LastNameWrapper>
             </UserWrapper>
             <UserNameWrapper>
@@ -67,6 +99,7 @@ const SignUp = ({ isClose }: signInProps) => {
                 control={control}
                 className="username"
               />
+              <ErrorMessage> {errors?.username && errors?.username?.message}</ErrorMessage>
             </UserNameWrapper>
             <PhoneWrapper>
               <TextInput
@@ -76,6 +109,7 @@ const SignUp = ({ isClose }: signInProps) => {
                 control={control}
                 className="phonenumber"
               />
+              <ErrorMessage> {errors?.phone && errors?.phone?.message}</ErrorMessage>
             </PhoneWrapper>
             <EmailWrapper>
               <TextInput
@@ -85,6 +119,7 @@ const SignUp = ({ isClose }: signInProps) => {
                 control={control}
                 className="email"
               />
+              <ErrorMessage> {errors?.email && errors?.email?.message}</ErrorMessage>
             </EmailWrapper>
             <PasswordWrapper>
               <TextInput
@@ -94,6 +129,7 @@ const SignUp = ({ isClose }: signInProps) => {
                 control={control}
                 className="password"
               />
+              <ErrorMessage> {errors?.password && errors?.password?.message}</ErrorMessage>
             </PasswordWrapper>
             <ButtonWrapper>
               <Button label={'SignUp'} type="submit" />
@@ -101,6 +137,7 @@ const SignUp = ({ isClose }: signInProps) => {
           </form>
         </Container>
       </MainContainer>
+      {open && <AlertModal Content="sucessfully added" isClose={handleClose} />}
     </>
   )
 }

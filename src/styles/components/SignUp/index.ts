@@ -12,17 +12,16 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 40%;
   width: 26vw;
-  height: 43vh;
+  height: 62vh;
   border: 2px solid #ffb84d;
   background-color: white;
 `
-
 export const Container = styled.div`
   width: 24vw;
-  height: 40vh;
+  height: 54vh;
   margin-top: 10px;
 `
 export const Wrapper = styled.div`
@@ -30,7 +29,6 @@ export const Wrapper = styled.div`
 `
 
 export const SignUpIconWrapper = styled.div`
-  width: 50%;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
@@ -39,9 +37,10 @@ export const SignUpIconWrapper = styled.div`
 export const SignUpWrapper = styled.div`
   font-size: 1.2rem;
   font-weight: 800;
-  margin: 10px 10px;
-  width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
 `
 
 export const UserWrapper = styled.div`
