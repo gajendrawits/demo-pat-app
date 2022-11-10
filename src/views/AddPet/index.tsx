@@ -44,8 +44,6 @@ const AddPet = ({ isClose }: AddPetProps) => {
     isClose()
   }
 
-  console.log(isSuccess)
-
   return (
     <>
       {isSuccess ? (

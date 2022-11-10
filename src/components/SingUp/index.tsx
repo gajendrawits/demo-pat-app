@@ -49,8 +49,6 @@ const SignUp = ({ isClose }: signInProps) => {
     isClose()
   }
 
-  console.log(isSuccess, 'success project')
-
   return (
     <>
       {isSuccess ? (

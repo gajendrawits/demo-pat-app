@@ -1,5 +1,15 @@
 import React, { useState } from 'react'
-import { Container, Logo, UserLogin, UserLogOut, UserSection, UserSignup } from 'styles/components/Header'
+import {
+  CatWrapper,
+  Container,
+  DogWrapper,
+  Logo,
+  NavbarLink,
+  UserLogin,
+  UserLogOut,
+  UserSection,
+  UserSignup,
+} from 'styles/components/Header'
 import dogLogo from 'assets/dogLogo.png'
 import Login from 'components/Login'
 import SignUp from 'components/SingUp'
@@ -38,6 +48,10 @@ const Header = () => {
         <Logo>
           <img src={dogLogo} />
         </Logo>
+        <DogWrapper>
+          <NavbarLink to={'/dog'}>Dog </NavbarLink>
+        </DogWrapper>
+        <CatWrapper>Cat</CatWrapper>
         <UserSection>
           {getStatus ? (
             <UserLogOut onClick={handleLogout}>Logout</UserLogOut>
