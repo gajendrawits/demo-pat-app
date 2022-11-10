@@ -22,12 +22,13 @@ import AlertModal from 'components/AlertModal'
 interface AddPetProps {
   isClose: () => void
 }
+
 const AddPet = ({ isClose }: AddPetProps) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onSubmit', resolver: yupResolver(ValidationSchema), shouldFocusError: true })
+  } = useForm({ mode: 'onChange', resolver: yupResolver(ValidationSchema), shouldFocusError: true })
 
   const { mutateAsync, isSuccess } = usePost()
 
@@ -37,7 +38,6 @@ const AddPet = ({ isClose }: AddPetProps) => {
       url: '/pet',
       payload: { name: val.name, tags: [{ breed }], photoUrls: [val.photoUrls] },
     })
-    isClose()
   }
 
   const handleClicked = () => {
@@ -48,30 +48,41 @@ const AddPet = ({ isClose }: AddPetProps) => {
 
   return (
     <>
-      <MainWrapper />
-      <Container>
-        <IconWrapper>
-          <ClearIcon sx={{ fontSize: '35px', fontWeight: 900, cursor: 'pointer' }} onClick={handleClicked} />
-        </IconWrapper>
-        <AnimalHeading>Add Pet`s</AnimalHeading>
-        <form onSubmit={handleSubmit(formData)}>
-          <InputField>
-            <TextInput name="name" placeholder="Enter Pet Name" type="text" control={control} className="animal" />
-            <ErrorMessage> {errors?.name && errors?.name?.message}</ErrorMessage>
-          </InputField>
-          <InputField>
-            <TextInput name="breed" placeholder="Enter Pet Breed" type="text" control={control} className="animal" />
-            <ErrorMessage> {errors?.breed && errors?.breed?.message}</ErrorMessage>
-          </InputField>
-          <ChooseFile>
-            <TextInput name="photoUrls" type="file" control={control} className="choosefiles" />
-          </ChooseFile>
-          <ButtonWrapper>
-            <Button label="submit" type="submit" />
-          </ButtonWrapper>
-        </form>
-      </Container>
-      {isSuccess ? <AlertModal Content="Pet Add SuccessFully" isClose={handleClicked} /> : null}
+      {isSuccess ? (
+        <AlertModal Content="Pet Add SucessFully" isClose={handleClicked} />
+      ) : (
+        <>
+          <MainWrapper />
+          <Container>
+            <IconWrapper>
+              <ClearIcon sx={{ fontSize: '35px', fontWeight: 900, cursor: 'pointer' }} onClick={handleClicked} />
+            </IconWrapper>
+            <AnimalHeading>Add Pet`s</AnimalHeading>
+            <form onSubmit={handleSubmit(formData)}>
+              <InputField>
+                <TextInput name="name" placeholder="Enter Pet Name" type="text" control={control} className="animal" />
+                <ErrorMessage> {errors?.name && errors?.name?.message}</ErrorMessage>
+              </InputField>
+              <InputField>
+                <TextInput
+                  name="breed"
+                  placeholder="Enter Pet Breed"
+                  type="text"
+                  control={control}
+                  className="animal"
+                />
+                <ErrorMessage> {errors?.breed && errors?.breed?.message}</ErrorMessage>
+              </InputField>
+              <ChooseFile>
+                <TextInput name="photoUrls" type="file" control={control} className="choosefiles" />
+              </ChooseFile>
+              <ButtonWrapper>
+                <Button label="submit" type="submit" />
+              </ButtonWrapper>
+            </form>
+          </Container>
+        </>
+      )}
     </>
   )
 }

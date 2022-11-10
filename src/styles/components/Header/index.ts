@@ -22,6 +22,11 @@ export const UserLogin = styled.div`
   font-weight: 600;
   cursor: pointer;
 `
+export const UserLogOut = styled.div`
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+`
 
 export const UserSignup = styled.div`
   margin-left: 5px;
