@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { Link } from 'react-router-dom'
 export const Container = styled.div`
   display: flex;
   justify-content: space-around;
@@ -11,6 +11,27 @@ export const LoginContainer = styled.div``
 
 export const Logo = styled.div`
   margin-top: 5px;
+`
+
+export const Category = styled.div`
+  display: flex;
+`
+export const DogWrapper = styled.div`
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+`
+export const NavbarLink = styled(Link)`
+  color: black;
+  &:hover {
+    color: black;
+  }
+`
+
+export const CatWrapper = styled.div`
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
 `
 
 export const UserSection = styled.div`
