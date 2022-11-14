@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  AddToCart,
   CatWrapper,
   Container,
   DogWrapper,
@@ -14,11 +15,15 @@ import dogLogo from 'assets/dogLogo.png'
 import Login from 'components/Login'
 import SignUp from 'components/SingUp'
 import useGet from 'hooks/useGet'
+import { useNavigate } from 'react-router-dom'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
 const Header = () => {
   const [Open, setOpen] = useState(false)
   const [singInOpen, setSignInOpen] = useState(false)
   const [getStatus, setStatus] = useState<boolean>(false)
+  const navigate = useNavigate()
+
   const handleLogin = () => {
     setSignInOpen(false)
     setOpen(true)
@@ -42,16 +47,26 @@ const Header = () => {
   }
   const { refetch: logOutFun } = useGet('logout', `user/logout`)
 
+  const homePage = () => {
+    navigate('/')
+  }
+
+  const AddCart = () => {
+    navigate('/cart')
+  }
+
   return (
     <>
       <Container>
         <Logo>
-          <img src={dogLogo} />
+          <img src={dogLogo} onClick={homePage} />
         </Logo>
         <DogWrapper>
           <NavbarLink to={'/dog'}>Dog </NavbarLink>
         </DogWrapper>
-        <CatWrapper>Cat</CatWrapper>
+        <CatWrapper>
+          <NavbarLink to={'/cat'}>Cat </NavbarLink>
+        </CatWrapper>
         <UserSection>
           {getStatus ? (
             <UserLogOut onClick={handleLogout}>Logout</UserLogOut>
@@ -60,6 +75,9 @@ const Header = () => {
           )}
           <UserSignup onClick={handleSignin}>| Sign up</UserSignup>
         </UserSection>
+        <AddToCart onClick={AddCart}>
+          <ShoppingCartIcon fontSize="large" />
+        </AddToCart>
       </Container>
 
       {Open && <Login isClose={handleClose} getStatus={setStatus} />}

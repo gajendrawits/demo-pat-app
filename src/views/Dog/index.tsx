@@ -18,13 +18,17 @@ import SelectField from 'components/FormElements/SelectField'
 const Dog = () => {
   const [dogValue, setDogValue] = useState<string>('')
 
-  const filterDogs = dogContent.filter((dog) => {
+  const dogarr = dogContent.slice()
+
+  const filterDogs = dogarr.filter((dog) => {
     return dog.status == dogValue
   })
 
-  dogContent.push(...filterDogs)
-
-  console.log(dogContent)
+  if (filterDogs.length > 0) {
+    dogarr.splice(0, dogarr.length)
+    dogarr.push(...filterDogs)
+    filterDogs.splice(0, filterDogs.length)
+  }
 
   return (
     <Container>
@@ -33,7 +37,7 @@ const Dog = () => {
         <SelectField dogStatus={setDogValue} />
       </SelectStatus>
       <DogContent>
-        {dogContent.map((dogs: any, index: number) => {
+        {dogarr.map((dogs: any, index: number) => {
           return (
             <DogCard key={index}>
               <DogImage>

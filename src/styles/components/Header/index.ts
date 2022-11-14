@@ -11,6 +11,7 @@ export const LoginContainer = styled.div``
 
 export const Logo = styled.div`
   margin-top: 5px;
+  cursor: pointer;
 `
 
 export const Category = styled.div`
@@ -53,5 +54,8 @@ export const UserSignup = styled.div`
   margin-left: 5px;
   font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
+`
+export const AddToCart = styled.div`
   cursor: pointer;
 `
