@@ -1,5 +1,5 @@
-import Header from 'components/Header'
 import React from 'react'
+import Header from 'components/Header'
 import {
   CardExit,
   CartHeader,
@@ -21,6 +21,12 @@ import {
   LeftHeading,
   MainContainer,
   RightWrapper,
+  ShippingCharge,
+  ShippingChargeText,
+  ShippingPrice,
+  TotalPrice,
+  TotalPriceText,
+  TotalPriceValue,
 } from 'styles/views/Cart'
 
 const Cart = () => {
@@ -30,7 +36,7 @@ const Cart = () => {
       <Container>
         <CartRightWrapper>
           <RightWrapper>
-            <CartHeader>My Shoping Cart</CartHeader>
+            <CartHeader>My Shoping Cart Items</CartHeader>
             <CartItem>
               <CartItemImage>
                 <img src="https://img.freepik.com/free-photo/gold-bengal-cat-white-space_155003-12734.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph" />
@@ -55,7 +61,17 @@ const Cart = () => {
         <CartLeftWrapper>
           <LeftContainer>
             <LeftHeading>Cart Summary</LeftHeading>
-            <ItemPrice></ItemPrice>
+            <ItemPrice>
+              <strong>Price:</strong>₹55
+            </ItemPrice>
+            <ShippingCharge>
+              <ShippingChargeText>Shipping Charge:</ShippingChargeText>
+              <ShippingPrice>Free</ShippingPrice>
+            </ShippingCharge>
+            <TotalPrice>
+              <TotalPriceText>Total Amount:</TotalPriceText>
+              <TotalPriceValue>₹55</TotalPriceValue>
+            </TotalPrice>
             <CheckOut>Checkout</CheckOut>
           </LeftContainer>
         </CartLeftWrapper>

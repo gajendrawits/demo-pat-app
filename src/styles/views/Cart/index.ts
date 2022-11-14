@@ -10,14 +10,14 @@ export const Container = styled.div`
 
 export const CartRightWrapper = styled.div`
   width: 50vw;
-  border: 1px solid black;
+
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 export const RightWrapper = styled.div`
-  width: 70%;
+  width: 25vw;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -93,19 +93,80 @@ export const CardExit = styled.div`
 `
 
 export const CartLeftWrapper = styled.div`
-  border: 1px solid black;
   width: 50vw;
+  justify-content: center;
+  display: flex;
 `
 
 export const LeftContainer = styled.div`
-  display: flex;
   flex-direction: column;
+  width: 25vw;
 `
 
-export const LeftHeading = styled.div``
+export const LeftHeading = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  height: 8vh;
+  color: green;
+`
 
-export const ItemPrice = styled.div``
+export const ItemPrice = styled.div`
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+`
+export const ShippingCharge = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+  justify-content: center;
+  gap: 20px;
+`
 
-export const TotalPrice = styled.div``
+export const ShippingChargeText = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+`
 
-export const CheckOut = styled.div``
+export const ShippingPrice = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+`
+
+export const TotalPrice = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0px;
+  gap: 20px;
+`
+
+export const TotalPriceText = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+`
+
+export const TotalPriceValue = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+`
+
+export const CheckOut = styled.div`
+  font-size: 1.2rem;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #f2f2f2;
+  height: 5vh;
+  color: blue;
+  border-radius: 10px;
+`
