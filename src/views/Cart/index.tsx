@@ -33,9 +33,7 @@ import { LoaderContext } from 'context/loader'
 const Cart = () => {
   const { state } = useContext(LoaderContext)
 
-  const { payload } = state
-
-  console.log(payload)
+  console.log(state)
 
   return (
     <MainContainer>
