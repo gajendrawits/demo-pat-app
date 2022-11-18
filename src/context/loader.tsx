@@ -1,13 +1,13 @@
-import { createContext } from 'react'
+import { createContext, Dispatch } from 'react'
 
 export interface ILoaderProps {
-  cart: any
-  setCart: (data: any) => void
+  state: any
+  dispatch: Dispatch<any>
 }
 
 const contextDefaultValues: ILoaderProps = {
-  cart: {},
-  setCart: (data: any) => data,
+  state: {},
+  dispatch: () => null,
 }
 
 export const LoaderContext = createContext<ILoaderProps>(contextDefaultValues)

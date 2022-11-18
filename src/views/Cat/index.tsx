@@ -34,7 +34,7 @@ const Cat = () => {
     filterCats.splice(0, filterCats.length)
   }
 
-  const { setCart } = useContext(LoaderContext)
+  const { dispatch } = useContext(LoaderContext)
 
   return (
     <Container>
@@ -60,7 +60,7 @@ const Cat = () => {
                   <strong>Status:</strong> <CatsBio>{cats.status}</CatsBio>
                 </CatStatus>
                 <ButtonWrapper>
-                  <Button label="Add to cart" onClick={() => setCart(cats)} />
+                  <Button label="Add to cart" onClick={() => dispatch({ type: 'ADD_ITEM', payload: cats })} />
                 </ButtonWrapper>
               </CatBioData>
             </CatCard>
@@ -73,3 +73,5 @@ const Cat = () => {
 }
 
 export default Cat
+
+//onClick={() => setCart(cats)}
