@@ -4,6 +4,7 @@ export const CatData = [
     breed: 'American Curl',
     animal: 'cat',
     status: 'available',
+    price: 5100,
     ImageUrl:
       'https://img.freepik.com/premium-photo/american-curl-kitten-3-months-old-standing-looking-camera_191971-5494.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133',
   },
@@ -12,6 +13,7 @@ export const CatData = [
     breed: 'Bengal',
     animal: 'cat',
     status: 'sold',
+    price: 5300,
     ImageUrl:
       'https://img.freepik.com/free-photo/gold-bengal-cat-white-space_155003-12734.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -20,6 +22,7 @@ export const CatData = [
     breed: ' Persian cat',
     animal: 'cat',
     status: 'pending',
+    price: 6550,
     ImageUrl:
       'https://img.freepik.com/free-photo/beautiful-pet-portrait-cat_23-2149218508.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -28,6 +31,7 @@ export const CatData = [
     breed: 'Ragdoll',
     animal: 'cat',
     status: 'available',
+    price: 7500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/grey-stripped-mixed-breed-cat-sitting-isolated-white_191971-20618.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -36,6 +40,7 @@ export const CatData = [
     breed: 'French',
     animal: 'cat',
     status: 'available',
+    price: 8800,
     ImageUrl:
       'https://img.freepik.com/free-photo/cake-macaron-composition-with-cat-number-three-cake-tapes-shiny-silver-background_1268-19873.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -44,6 +49,7 @@ export const CatData = [
     breed: 'British Shorthair',
     animal: 'cat',
     status: 'sold',
+    price: 5500,
     ImageUrl:
       'https://img.freepik.com/free-photo/gray-cat-relaxing_176474-6812.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -52,6 +58,7 @@ export const CatData = [
     breed: 'Devon Rex',
     animal: 'cat',
     status: 'sold',
+    price: 6500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/portrait-purebred-devon-rex-kitten-black-background_320071-4666.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -60,6 +67,7 @@ export const CatData = [
     breed: 'sphynx',
     animal: 'cat',
     status: 'pending',
+    price: 9500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/fat-pregnant-sphynx-sitting-isolated-white_191971-19264.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=ais',
   },
@@ -68,6 +76,7 @@ export const CatData = [
     breed: 'Maine Coon',
     animal: 'cat',
     status: 'pending',
+    price: 8500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/maine-coon-cat-6-months-old-sitting-against-white-background_191971-24877.jpg?size=338&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -76,6 +85,7 @@ export const CatData = [
     breed: 'American Curl',
     animal: 'cat',
     status: 'pending',
+    price: 7500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/cat-silver-tabby-color-which-ears-roll-cute-ginger-kitten-fluffy-pet-poses-comfortably-is-happy-cat-breed-originated-from-american-curl-cat-american-short-hair-cat-breeder_36928-237.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -84,6 +94,7 @@ export const CatData = [
     breed: 'Bengal',
     animal: 'cat',
     status: 'available',
+    price: 5400,
     ImageUrl:
       'https://img.freepik.com/premium-photo/american-curl-kitten-3-months-old-sitting-looking_191971-4634.jpg?size=338&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -92,6 +103,7 @@ export const CatData = [
     breed: ' Birman',
     animal: 'cat',
     status: 'available',
+    price: 5500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/cute-cat-doll-made-wool_691560-1686.jpg?size=338&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -100,6 +112,7 @@ export const CatData = [
     breed: 'Russian',
     animal: 'cat',
     status: 'sold',
+    price: 5500,
     ImageUrl:
       'https://img.freepik.com/premium-photo/anthropomorphic-cat-eating-restaurant_691560-1675.jpg?size=338&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -108,6 +121,7 @@ export const CatData = [
     breed: 'Abyssinian',
     animal: 'cat',
     status: 'available',
+    price: 5500,
     ImageUrl:
       'https://img.freepik.com/free-photo/cute-abyssinian-cat-resting-soft-pillow_181624-56547.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -116,6 +130,7 @@ export const CatData = [
     breed: 'Sokko',
     animal: 'cat',
     status: 'available',
+    price: 5600,
     ImageUrl:
       'https://img.freepik.com/free-photo/sleepy-cat_53876-23409.jpg?size=338&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=ais',
   },
@@ -124,6 +139,7 @@ export const CatData = [
     breed: 'Scottish fold',
     animal: 'cat',
     status: 'sold',
+    price: 5700,
     ImageUrl:
       'https://img.freepik.com/free-photo/closeup-photo-scottish-fold-kitten_627829-8243.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -132,6 +148,7 @@ export const CatData = [
     breed: 'Black cats',
     animal: 'cat',
     status: 'available',
+    price: 5800,
     ImageUrl:
       'https://img.freepik.com/premium-photo/little-kitten-white_288990-113.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
@@ -140,6 +157,7 @@ export const CatData = [
     breed: 'Burmese',
     animal: 'cat',
     status: 'available',
+    price: 5900,
     ImageUrl:
       'https://img.freepik.com/premium-photo/cute-kitty-with-big-eyes_691560-1663.jpg?size=626&ext=jpg&ga=GA1.2.1871494136.1667553133&semt=sph',
   },
