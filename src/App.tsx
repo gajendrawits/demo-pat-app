@@ -6,17 +6,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Dog from 'views/Dog'
 import Cat from 'views/Cat'
 import Cart from 'views/Cart'
-import { useState } from 'react'
+import { useReducer } from 'react'
+import { CartReucer } from 'context/reducer/cartReducer'
 const queryClient = new QueryClient()
 
 const App = () => {
-  const [cart, setCart] = useState()
+  const initialState = {}
 
+  const [state, dispatch] = useReducer(CartReucer, initialState)
   return (
     <LoaderContext.Provider
       value={{
-        cart,
-        setCart,
+        state,
+        dispatch,
       }}
     >
       <QueryClientProvider client={queryClient}>
