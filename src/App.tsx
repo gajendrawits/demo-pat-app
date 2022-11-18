@@ -11,7 +11,9 @@ import { CartReucer } from 'context/reducer/cartReducer'
 const queryClient = new QueryClient()
 
 const App = () => {
-  const initialState = {}
+  const initialState = {
+    cart: [],
+  }
 
   const [state, dispatch] = useReducer(CartReucer, initialState)
   return (

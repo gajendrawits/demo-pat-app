@@ -12,9 +12,9 @@ export const CartReucer = (state: any, action: AddAction) => {
   const { type, payload } = action
   switch (type) {
     case CartAction.ADD:
-      return { ...state, payload }
+      return { ...state, cart: [...state.cart, payload] }
     case CartAction.REMOVE:
-      return { ...state, payload }
+      return { ...state, cart: payload }
     default:
       return state
   }
