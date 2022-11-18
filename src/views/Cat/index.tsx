@@ -2,7 +2,7 @@ import Footer from 'components/Footer'
 import SelectField from 'components/FormElements/SelectField'
 import Header from 'components/Header'
 import { CatData } from 'constant/Cat'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from 'components/Button'
 import {
   ButtonWrapper,
@@ -17,6 +17,7 @@ import {
   Container,
   SelectStatus,
 } from 'styles/views/Cat'
+import { LoaderContext } from 'context/loader'
 
 const Cat = () => {
   const [selectValue, setSelectValue] = useState<string>('')
@@ -32,6 +33,8 @@ const Cat = () => {
     Catarr.push(...filterCats)
     filterCats.splice(0, filterCats.length)
   }
+
+  const { setCart } = useContext(LoaderContext)
 
   return (
     <Container>
@@ -57,7 +60,7 @@ const Cat = () => {
                   <strong>Status:</strong> <CatsBio>{cats.status}</CatsBio>
                 </CatStatus>
                 <ButtonWrapper>
-                  <Button label="Add to cart" />
+                  <Button label="Add to cart" onClick={() => setCart(cats)} />
                 </ButtonWrapper>
               </CatBioData>
             </CatCard>

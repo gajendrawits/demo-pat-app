@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from 'components/Header'
 import {
   CardExit,
@@ -28,8 +28,13 @@ import {
   TotalPriceText,
   TotalPriceValue,
 } from 'styles/views/Cart'
+import { LoaderContext } from 'context/loader'
 
 const Cart = () => {
+  const { cart } = useContext(LoaderContext)
+
+  console.log(cart)
+
   return (
     <MainContainer>
       <Header />
